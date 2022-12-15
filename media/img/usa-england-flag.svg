@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 0 117.00001 30.000009"
+   width="2340.0002"
+   height="600.00018"
+   version="1.1"
+   id="svg1783"
+   sodipodi:docname="British and American flags.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+  <metadata
+     id="metadata1789">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs1787" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1137"
+     id="namedview1785"
+     showgrid="false"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:snap-midpoints="true"
+     inkscape:snap-intersection-paths="true"
+     inkscape:zoom="0.35355339"
+     inkscape:cx="872.40906"
+     inkscape:cy="475.93201"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1783" />
+  <clipPath
+     id="s">
+    <path
+       d="M 0,0 V 30 H 60 V 0 Z"
+       id="path1765"
+       inkscape:connector-curvature="0" />
+  </clipPath>
+  <clipPath
+     id="t">
+    <path
+       d="m 30,15 h 30 v 15 z m 0,0 V 30 H 0 Z m 0,0 H 0 V 0 Z m 0,0 V 0 h 30 z"
+       id="path1768"
+       inkscape:connector-curvature="0" />
+  </clipPath>
+  <g
+     clip-path="url(#s)"
+     id="g1781">
+    <path
+       d="M 0,0 V 30 H 60 V 0 Z"
+       id="path1771"
+       inkscape:connector-curvature="0"
+       style="fill:#012169" />
+    <path
+       d="M 0,0 60,30 M 60,0 0,30"
+       id="path1773"
+       inkscape:connector-curvature="0"
+       style="stroke:#ffffff;stroke-width:6" />
+    <path
+       d="M 0,0 60,30 M 60,0 0,30"
+       clip-path="url(#t)"
+       id="path1775"
+       inkscape:connector-curvature="0"
+       style="stroke:#c8102e;stroke-width:4" />
+    <path
+       d="M 30,0 V 30 M 0,15 h 60"
+       id="path1777"
+       inkscape:connector-curvature="0"
+       style="stroke:#ffffff;stroke-width:10" />
+    <path
+       d="M 30,0 V 30 M 0,15 h 60"
+       id="path1779"
+       inkscape:connector-curvature="0"
+       style="stroke:#c8102e;stroke-width:6" />
+  </g>
+  <g
+     id="g2430"
+     transform="matrix(0.00769231,0,0,0.00769231,60,0)"
+     style="stroke-width:1.0833329">
+    <rect
+       id="rect2373"
+       height="3900"
+       width="7410"
+       x="0"
+       y="0"
+       style="fill:#b22234;stroke-width:1.0833329" />
+    <path
+       id="path2375"
+       d="m 0,450 h 7410 m 0,600 H 0 m 0,600 h 7410 m 0,600 H 0 m 0,600 h 7410 m 0,600 H 0"
+       inkscape:connector-curvature="0"
+       style="stroke:#ffffff;stroke-width:324.99987793" />
+    <rect
+       id="rect2377"
+       height="2100"
+       width="2964"
+       x="0"
+       y="0"
+       style="fill:#3c3b6e;stroke-width:1.0833329" />
+    <g
+       id="g2402"
+       style="fill:#ffffff;stroke-width:1.0833329">
+      <g
+         id="s18"
+         style="stroke-width:1.0833329">
+        <g
+           id="s9"
+           style="stroke-width:1.0833329">
+          <g
+             id="s5"
+             style="stroke-width:1.0833329">
+            <g
+               id="s4"
+               style="stroke-width:1.0833329">
+              <path
+                 d="M 247,90 317.53423,307.08204 132.87322,172.91796 H 361.12678 L 176.46577,307.08204 Z"
+                 id="s-7"
+                 inkscape:connector-curvature="0"
+                 style="stroke-width:1.0833329" />
+              <use
+                 id="use2380"
+                 y="420"
+                 xlink:href="#s-7"
+                 x="0"
+                 width="100%"
+                 height="100%"
+                 style="stroke-width:1.0833329" />
+              <use
+                 id="use2382"
+                 y="840"
+                 xlink:href="#s-7"
+                 x="0"
+                 width="100%"
+                 height="100%"
+                 style="stroke-width:1.0833329" />
+              <use
+                 id="use2384"
+                 y="1260"
+                 xlink:href="#s-7"
+                 x="0"
+                 width="100%"
+                 height="100%"
+                 style="stroke-width:1.0833329" />
+            </g>
+            <use
+               id="use2387"
+               y="1680"
+               xlink:href="#s-7"
+               x="0"
+               width="100%"
+               height="100%"
+               style="stroke-width:1.0833329" />
+          </g>
+          <use
+             id="use2390"
+             y="210"
+             x="247"
+             xlink:href="#s4"
+             width="100%"
+             height="100%"
+             style="stroke-width:1.0833329" />
+        </g>
+        <use
+           id="use2393"
+           x="494"
+           xlink:href="#s9"
+           y="0"
+           width="100%"
+           height="100%"
+           style="stroke-width:1.0833329" />
+      </g>
+      <use
+         id="use2396"
+         x="988"
+         xlink:href="#s18"
+         y="0"
+         width="100%"
+         height="100%"
+         style="stroke-width:1.0833329" />
+      <use
+         id="use2398"
+         x="1976"
+         xlink:href="#s9"
+         y="0"
+         width="100%"
+         height="100%"
+         style="stroke-width:1.0833329" />
+      <use
+         id="use2400"
+         x="2470"
+         xlink:href="#s5"
+         y="0"
+         width="100%"
+         height="100%"
+         style="stroke-width:1.0833329" />
+    </g>
+  </g>
+</svg>

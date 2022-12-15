@@ -2,6 +2,10 @@
  * @author Adrian Fusco
  */
 
+/*
+    Bash text simulation
+*/
+
 const firstText = "$ echo 'Hello world'"
 const secondText = "Hello world"
 
@@ -34,3 +38,82 @@ let reExecutionTimer = setTimeout(function tick() {
 
     reExecutionTimer = setTimeout(tick, 2000);
 }, 2000);
+
+/*
+    Change language based on user choice
+*/
+
+// This is an about me website, just that. We don't need nothing more complex than this for having different languages
+const languages = {
+    "en": {
+        "welcomeText": `
+        I've been working on the backend development side for more than three years.
+
+        In order to automate the interaction with many services like Xen, KVM, Nginx, Apache, SSL, Restic, Ceph, ELK,
+        etc., I began working mostly with the Perl programming language to create new modules. I used PHP and Python
+        after a significant transition in technology and services, which gave me the chance to learn a lot and mature.
+
+        I made a significant adjustment more than a year ago when I joined Red Hat <i class="fab fa-redhat fa-lg"></i>
+
+        I'm now collaborating with the Code Reliability Engineering team to enhance the upstream and downstream CI
+        systems of the Openstack architecture using different tools, programming languages and services as Grafana,
+        InfluxDB, Telegraf, ELK, Filebeat, Go, Python and also some contributions into the Openshift project
+        generating k8s operators for some Openstack components.
+
+        I started contributing to the Open Source community
+        `
+    },
+    "es": {
+        "welcomeText": `
+            He trabajado en el área de desarrollo backend for más de 3 años.
+
+            Comencé trabajando principalmente con el lenguaje de programación Perl creando nuevos módulos para automatizar
+            la interacción con distintos servicios como Xen, KVM, Nginx, Apache, SSL, Restic, Ceph, ELK,
+            etc. Gracias a una migración de toda la infraestructura tuve la oportunidad de realizar migraciones 
+            de todos estos módulos usando PHP y Python principalmente.
+
+            Hace más de un año hice un gran cambio cuando me uní a Red Hat <i class="fab fa-redhat fa-lg"></i>
+
+            Me encuentro colaborando con el equipo de Code Reliability Engineering realizando mejoras en el sistema de CI
+            de Openstack tanto en upstream como en downstream usando distintas herramientas, lenguajes de programación y
+            servicios como Grafana, InfluxDB, Telegraf, ELK, Filebeat, Go, Python además de realizar algunas contribuciones
+            al proyecto de Openshift generando algunos operators en k8s para componentes de Openstack.
+
+            He comenzado a contribuir a la comunidad Open Source.
+        `,
+    },
+    "ga": {
+        "welcomeText": `
+        Traballei na área de desenvolvemento backend por máis de 3 anos.
+
+        Comecei traballando principalmente coa linguaxe de programación Perl creando novos módulos para automatizar
+        a interacción con distintos servizos como Xen, KVM, Nginx, Apache, SSL, Restic, Ceph, ELK,
+        etc. Grazas a unha migración de toda a infraestrutura tiven a oportunidade de realizar migracións
+        de todos estes módulos usando PHP e Python principalmente.
+
+        Fai máis dun ano fixen un gran cambio cando me unín a Red Hat <i class="fab fa-redhat fa-lg"></i>
+
+        Atópome colaborando co equipo de Code Reliability Engineering realizando melloras no sistema de CI
+        de Openstack tanto en upstream como en downstream usando distintas ferramentas, linguaxes de programación e
+        servizos como Grafana, InfluxDB, Telegraf, ELK, Filebeat, Go, Python ademais de realizar algunhas contribucións
+        ao proxecto de Openshift xerando algúns operators en k8s para compoñentes de Openstack.
+
+        Comecei a contribuír á comunidade Open source.
+        `,
+    }
+}
+
+// Put english language by default
+document.getElementById("welcomeText").innerHTML = "<p>" + languages["en"]["welcomeText"] + "<p>";
+
+// Change language based on the user choice and the text received by the attribute 'language'
+function changeLanguage(element) {
+    languageSelected = element.getAttribute("language")
+    Object.keys(languages).forEach((languageKey) => {
+        if (languageSelected === languageKey) {
+            Object.keys(languages[languageKey]).forEach((key) => {
+                document.getElementById(key).innerHTML = "<p>" + languages[languageKey][key] + "<p>";
+            })
+        }
+    })
+}
