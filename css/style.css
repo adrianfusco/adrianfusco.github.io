@@ -134,7 +134,7 @@
 }
 
 .fa-linkedin {
-    color: #0A66C2 ;
+    color: #0A66C2;
 }
 
 .fa-github {
@@ -161,11 +161,12 @@
     }
 }
 
-@media screen and (max-width: 600px) {
-    div .about-right {
+@media screen and (max-width: 700px) and (orientation:portrait) {
+    .about-right {
         font-size: 0.8rem;
-        display: inline-block;
+        display: block;
         padding: 2rem;
+
     }
 
     .about-left {
@@ -181,23 +182,9 @@
     }
 }
 
-@media screen and (orientation:landscape) { 
-    div .about-right {
-        font-size: 0.8rem;
-        display: inline-block;
-        padding: 2rem;
-        overflow: auto;
-    }
-
-    .about-left {
-        padding: 30px;
-    }
-
+@media screen and (max-width: 900px) and (orientation:landscape) {
     .about-right {
-        padding-top: 100px;
-    }
-
-    .about-btns {
-        display: inline-block;
+        overflow: auto;
+        display: block;
     }
 }
