@@ -90,6 +90,17 @@
     font-weight: 900;
 }
 
+.about-right #text-terminal {
+    position: absolute;
+    text-align: left;
+    background-color: black;
+    color: white;
+    font-size: medium;
+    font-family: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+    display: inline-block;
+    white-space: nowrap;
+}
+
 .about-btns {
     display: flex;
     margin: 2rem 0;
@@ -127,6 +138,8 @@
     font-weight: 300;
     padding: 0.5rem;
     opacity: 0.9;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .fa-redhat {
@@ -144,6 +157,8 @@
 .fa-stack-overflow {
     color: #f3da35;
 }
+
+
 
 @media screen and (min-width: 601px) {
     .about-wrapper {
@@ -187,4 +202,27 @@
         overflow: auto;
         display: block;
     }
+}
+
+@import url(https://fonts.googleapis.com/css?family=Khula:700);
+
+body {
+    background: #111;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.console-container {
+    font-family: Khula;
+    font-size: 4em;
+    text-align: center;
+    color: white;
+}
+
+.console-underscore {
+    display: inline-block;
+    position: relative;
+    left: 10px;
 }
