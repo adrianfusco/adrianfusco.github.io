@@ -129,6 +129,22 @@
     opacity: 0.9;
 }
 
+.fa-redhat {
+    color: rgb(255, 0, 0);
+}
+
+.fa-linkedin {
+    color: #0A66C2 ;
+}
+
+.fa-github {
+    color: #171515;
+}
+
+.fa-stack-overflow {
+    color: #f3da35;
+}
+
 @media screen and (min-width: 601px) {
     .about-wrapper {
         display: grid;
@@ -150,6 +166,27 @@
         font-size: 0.8rem;
         display: inline-block;
         padding: 2rem;
+    }
+
+    .about-left {
+        padding: 30px;
+    }
+
+    .about-right {
+        padding-top: 100px;
+    }
+
+    .about-btns {
+        display: inline-block;
+    }
+}
+
+@media screen and (orientation:landscape) { 
+    div .about-right {
+        font-size: 0.8rem;
+        display: inline-block;
+        padding: 2rem;
+        overflow: auto;
     }
 
     .about-left {
