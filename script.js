@@ -47,64 +47,68 @@ let reExecutionTimer = setTimeout(function tick() {
 const languages = {
     "en": {
         "welcomeText": `
-        I've been working on the backend development side for more than three years.
+        <p>I've been working on the backend development side for more than three years.</p>
 
-        In order to automate the interaction with many services like Xen, KVM, Nginx, Apache, SSL, Restic, Ceph, ELK,
+        <p>In order to automate the interaction with many services like Xen, KVM, Nginx, Apache, SSL, Restic, Ceph, ELK,
         etc., I began working mostly with the Perl programming language to create new modules. I used PHP and Python
-        after a significant transition in technology and services, which gave me the chance to learn a lot and mature.
+        after a significant transition in technology and services, which gave me the chance to learn a lot and mature.</p>
 
-        I made a significant adjustment more than a year ago when I joined Red Hat <i class="fab fa-redhat fa-lg"></i>
+        <p>I made a significant adjustment more than a year ago when I joined Red Hat <i class="fab fa-redhat fa-lg"></i></p>
 
-        I'm now collaborating with the Code Reliability Engineering team to enhance the upstream and downstream CI
+        <p>I'm now collaborating with the Code Reliability Engineering team to enhance the upstream and downstream CI
         systems of the Openstack architecture using different tools, programming languages and services as Grafana,
         InfluxDB, Telegraf, ELK, Filebeat, Go, Python and also some contributions into the Openshift project
-        generating k8s operators for some Openstack components.
+        generating k8s operators for some Openstack components.</p>
 
-        I started contributing to the Open Source community
-        `
+        <p>I started contributing to the Open Source community</p>
+        `,
+        "resumeText": "CV / Resume"
     },
     "es": {
         "welcomeText": `
-            He trabajado en el área de desarrollo backend for más de 3 años.
+            <p>He trabajado en el área de desarrollo backend for más de 3 años.</p>
 
-            Comencé trabajando principalmente con el lenguaje de programación Perl creando nuevos módulos para automatizar
+            <p>Comencé trabajando principalmente con el lenguaje de programación Perl creando nuevos módulos para automatizar
             la interacción con distintos servicios como Xen, KVM, Nginx, Apache, SSL, Restic, Ceph, ELK,
             etc. Gracias a una migración de toda la infraestructura tuve la oportunidad de realizar migraciones 
-            de todos estos módulos usando PHP y Python principalmente.
+            de todos estos módulos usando PHP y Python principalmente.</p>
 
-            Hace más de un año hice un gran cambio cuando me uní a Red Hat <i class="fab fa-redhat fa-lg"></i>
+            <p>Hace más de un año hice un gran cambio cuando me uní a Red Hat <i class="fab fa-redhat fa-lg"></i></p>
 
-            Me encuentro colaborando con el equipo de Code Reliability Engineering realizando mejoras en el sistema de CI
+            <p>Me encuentro colaborando con el equipo de Code Reliability Engineering realizando mejoras en el sistema de CI
             de Openstack tanto en upstream como en downstream usando distintas herramientas, lenguajes de programación y
             servicios como Grafana, InfluxDB, Telegraf, ELK, Filebeat, Go, Python además de realizar algunas contribuciones
-            al proyecto de Openshift generando algunos operators en k8s para componentes de Openstack.
+            al proyecto de Openshift generando algunos operators en k8s para componentes de Openstack.</p>
 
-            He comenzado a contribuir a la comunidad Open Source.
+            <p>He comenzado a contribuir a la comunidad Open Source.</p>
         `,
+        "resumeText": "CV / Resumen"
     },
     "ga": {
         "welcomeText": `
-        Traballei na área de desenvolvemento backend por máis de 3 anos.
+        <p>Traballei na área de desenvolvemento backend por máis de 3 anos.
 
-        Comecei traballando principalmente coa linguaxe de programación Perl creando novos módulos para automatizar
+        <p>Comecei traballando principalmente coa linguaxe de programación Perl creando novos módulos para automatizar
         a interacción con distintos servizos como Xen, KVM, Nginx, Apache, SSL, Restic, Ceph, ELK,
         etc. Grazas a unha migración de toda a infraestrutura tiven a oportunidade de realizar migracións
-        de todos estes módulos usando PHP e Python principalmente.
+        de todos estes módulos usando PHP e Python principalmente. </p>
 
-        Fai máis dun ano fixen un gran cambio cando me unín a Red Hat <i class="fab fa-redhat fa-lg"></i>
+        <p>Fai máis dun ano fixen un gran cambio cando me unín a Red Hat <i class="fab fa-redhat fa-lg"></i> </p>
 
-        Atópome colaborando co equipo de Code Reliability Engineering realizando melloras no sistema de CI
+        <p>Atópome colaborando co equipo de Code Reliability Engineering realizando melloras no sistema de CI
         de Openstack tanto en upstream como en downstream usando distintas ferramentas, linguaxes de programación e
         servizos como Grafana, InfluxDB, Telegraf, ELK, Filebeat, Go, Python ademais de realizar algunhas contribucións
-        ao proxecto de Openshift xerando algúns operators en k8s para compoñentes de Openstack.
+        ao proxecto de Openshift xerando algúns operators en k8s para compoñentes de Openstack. </p>
 
-        Comecei a contribuír á comunidade Open source.
+        <p>Comecei a contribuír á comunidade Open source.</p>
         `,
+        "resumeText": "CV / Resumen"
     }
 }
 
 // Put english language by default
-document.getElementById("welcomeText").innerHTML = "<p>" + languages["en"]["welcomeText"] + "<p>";
+document.getElementById("welcomeText").innerHTML = languages["en"]["welcomeText"];
+document.getElementById("resumeText").innerHTML = languages["en"]["resumeText"];
 
 // Change language based on the user choice and the text received by the attribute 'language'
 function changeLanguage(element) {
@@ -112,7 +116,7 @@ function changeLanguage(element) {
     Object.keys(languages).forEach((languageKey) => {
         if (languageSelected === languageKey) {
             Object.keys(languages[languageKey]).forEach((key) => {
-                document.getElementById(key).innerHTML = "<p>" + languages[languageKey][key] + "<p>";
+                document.getElementById(key).innerHTML = languages[languageKey][key];
             })
         }
     })

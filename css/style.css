@@ -201,7 +201,7 @@
     }
 
     .about-right {
-        padding-top: 100px;
+        padding-top: 20px;
     }
 
     .about-btns {
@@ -214,27 +214,4 @@
         overflow: auto;
         display: block;
     }
-}
-
-@import url(https://fonts.googleapis.com/css?family=Khula:700);
-
-body {
-    background: #111;
-}
-
-.hidden {
-    opacity: 0;
-}
-
-.console-container {
-    font-family: Khula;
-    font-size: 4em;
-    text-align: center;
-    color: white;
-}
-
-.console-underscore {
-    display: inline-block;
-    position: relative;
-    left: 10px;
 }
