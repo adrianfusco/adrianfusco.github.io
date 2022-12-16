@@ -6,37 +6,37 @@
     Bash text simulation
 */
 
-const firstText = "$ echo 'Hello world'"
-const secondText = "Hello world"
+const firstText = '$ echo \'Hello world\'';
+const secondText = 'Hello world';
 
 var destinationElement;
 
 // Re execute all code inside:
 let reExecutionTimer = setTimeout(function tick() {
-    destinationElement = document.getElementById("text-terminal");
-    // If the element doesn't exist, we don't want to continue executing code:
-    if (destinationElement == null) {
-        return {
-            error: false
-        };
+  destinationElement = document.getElementById('text-terminal');
+  // If the element doesn't exist, we don't want to continue executing code:
+  if (destinationElement == null) {
+    return {
+      error: false,
+    };
+  }
+
+  // Write text into an element char by char
+  let charPosition = 0; let timeInterval;
+  timeInterval = window.setInterval(function() {
+    destinationElement.innerHTML += firstText.charAt(charPosition++);
+    if (charPosition > firstText.length) {
+      linebreak = document.createElement('br');
+      destinationElement.appendChild(linebreak);
+      content = document.createTextNode(secondText);
+      destinationElement.appendChild(content);
+      window.clearInterval(timeInterval);
     }
+  }, 50);
+  // Clear element
+  destinationElement.innerHTML = '';
 
-    // Write text into an element char by char
-    var charPosition = 0, timeInterval;
-    timeInterval = window.setInterval(function () {
-        destinationElement.innerHTML += firstText.charAt(charPosition++);
-        if (charPosition > firstText.length) {
-            linebreak = document.createElement("br");
-            destinationElement.appendChild(linebreak);
-            content = document.createTextNode(secondText);
-            destinationElement.appendChild(content);
-            window.clearInterval(timeInterval)
-        }
-    }, 50);
-    // Clear element
-    destinationElement.innerHTML = '';
-
-    reExecutionTimer = setTimeout(tick, 2000);
+  reExecutionTimer = setTimeout(tick, 2000);
 }, 2000);
 
 /*
@@ -45,8 +45,8 @@ let reExecutionTimer = setTimeout(function tick() {
 
 // This is an about me website, just that. We don't need nothing more complex than this for having different languages
 const languages = {
-    "en": {
-        "welcomeText": `
+  'en': {
+    'welcomeText': `
         <p>I've been working on the backend development side for more than three years.</p>
 
         <p>In order to automate the interaction with many services like Xen, KVM, Nginx, Apache, SSL, Restic, Ceph, ELK,
@@ -62,10 +62,10 @@ const languages = {
 
         <p>I started contributing to the Open Source community</p>
         `,
-        "resumeText": "CV / Resume"
-    },
-    "es": {
-        "welcomeText": `
+    'resumeText': 'CV / Resume',
+  },
+  'es': {
+    'welcomeText': `
             <p>He trabajado en el área de desarrollo backend for más de 3 años.</p>
 
             <p>Comencé trabajando principalmente con el lenguaje de programación Perl creando nuevos módulos para automatizar
@@ -82,10 +82,10 @@ const languages = {
 
             <p>He comenzado a contribuir a la comunidad Open Source.</p>
         `,
-        "resumeText": "CV / Resumen"
-    },
-    "ga": {
-        "welcomeText": `
+    'resumeText': 'CV / Resumen',
+  },
+  'ga': {
+    'welcomeText': `
         <p>Traballei na área de desenvolvemento backend por máis de 3 anos.
 
         <p>Comecei traballando principalmente coa linguaxe de programación Perl creando novos módulos para automatizar
@@ -102,22 +102,22 @@ const languages = {
 
         <p>Comecei a contribuír á comunidade Open source.</p>
         `,
-        "resumeText": "CV / Resumen"
-    }
-}
+    'resumeText': 'CV / Resumen',
+  },
+};
 
 // Put english language by default
-document.getElementById("welcomeText").innerHTML = languages["en"]["welcomeText"];
-document.getElementById("resumeText").innerHTML = languages["en"]["resumeText"];
+document.getElementById('welcomeText').innerHTML = languages['en']['welcomeText'];
+document.getElementById('resumeText').innerHTML = languages['en']['resumeText'];
 
 // Change language based on the user choice and the text received by the attribute 'language'
 function changeLanguage(element) {
-    languageSelected = element.getAttribute("language")
-    Object.keys(languages).forEach((languageKey) => {
-        if (languageSelected === languageKey) {
-            Object.keys(languages[languageKey]).forEach((key) => {
-                document.getElementById(key).innerHTML = languages[languageKey][key];
-            })
-        }
-    })
+  languageSelected = element.getAttribute('language');
+  Object.keys(languages).forEach((languageKey) => {
+    if (languageSelected === languageKey) {
+      Object.keys(languages[languageKey]).forEach((key) => {
+        document.getElementById(key).innerHTML = languages[languageKey][key];
+      });
+    }
+  });
 }
