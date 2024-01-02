@@ -23,7 +23,7 @@ let reExecutionTimer = setTimeout(function tick() {
 
   // Write text into an element char by char
   let charPosition = 0; let timeInterval;
-  timeInterval = window.setInterval(function() {
+  timeInterval = window.setInterval(function () {
     destinationElement.innerHTML += firstText.charAt(charPosition++);
     if (charPosition > firstText.length) {
       linebreak = document.createElement('br');
@@ -47,62 +47,51 @@ let reExecutionTimer = setTimeout(function tick() {
 const languages = {
   'en': {
     'welcomeText': `
-        <p>I've been working on the backend development side for more than three years.</p>
+        <p>Hey! :) I'm Adri, a Software Engineer with a strong DevOps background.</p>
 
-        <p>In order to automate the interaction with many services like Xen, KVM, Nginx, Apache, SSL, Restic, Ceph, ELK,
-        etc., I began working mostly with the Perl programming language to create new modules. I used PHP and Python
-        after a significant transition in technology and services, which gave me the chance to learn a lot and mature.</p>
+        <p>I started my journey as a web PHP Backend Developer working on several frameworks and then continued to the world of Linux services automation using Perl and Python.</p>
 
-        <p>I made a significant adjustment more than a year ago when I joined Red Hat <i class="fab fa-redhat fa-lg"></i></p>
+        <p>As my career progressed, I transitioned into a software engineer, simultaneously working on diverse projects including automation, monitoring, CI/CD, testing among others.</p>
 
-        <p>I'm now collaborating with the Code Reliability Engineering team to enhance the upstream and downstream CI
-        systems of the Openstack architecture using different tools, programming languages and services as Grafana,
-        InfluxDB, Telegraf, ELK, Filebeat, Go, Python and also some contributions into the Openshift project
-        generating k8s operators for some Openstack components.</p>
+        <p>Beyond coding, I have a passion for traveling and food, and I love to immerse myself in different cultures. This enthusiasm extends to languages, as I fluently speak Español, English, Galego, Italiano, and now learning some Turkçe.</p>
 
-        <p>I started contributing to the Open Source community</p>
-        `,
+        <p>In every project I work on, I bring not only technical proficiency but also a commitment to speed and efficiency.</p>
+
+        <p>Let's connect and explore new possibilities!</p>
+      `,
     'resumeText': 'CV / Resume',
   },
   'es': {
     'welcomeText': `
-            <p>He trabajado en el área de desarrollo backend for más de 3 años.</p>
+        <p>¡Hola! :) Soy Adri, Software Engineer con un sólido background en DevOps.</p>
 
-            <p>Comencé trabajando principalmente con el lenguaje de programación Perl creando nuevos módulos para automatizar
-            la interacción con distintos servicios como Xen, KVM, Nginx, Apache, SSL, Restic, Ceph, ELK,
-            etc. Gracias a una migración de toda la infraestructura tuve la oportunidad de realizar migraciones 
-            de todos estos módulos usando PHP y Python principalmente.</p>
+        <p>Comencé mi trayectoria como Desarrollador Backend de PHP trabajando con varios frameworks y luego continué en el mundo de la automatización de servicios de Linux utilizando Perl y Python.</p>
 
-            <p>Hace más de un año hice un gran cambio cuando me uní a Red Hat <i class="fab fa-redhat fa-lg"></i></p>
+        <p>A medida que avanzaba en mi carrera, hice la transición a Software Engineer, trabajando simultáneamente en proyectos diversos, incluyendo automatización, monitoring, CI/CD, testing, entre otros.</p>
 
-            <p>Me encuentro colaborando con el equipo de Code Reliability Engineering realizando mejoras en el sistema de CI
-            de Openstack tanto en upstream como en downstream usando distintas herramientas, lenguajes de programación y
-            servicios como Grafana, InfluxDB, Telegraf, ELK, Filebeat, Go, Python además de realizar algunas contribuciones
-            al proyecto de Openshift generando algunos operators en k8s para componentes de Openstack.</p>
+        <p>Más allá de programar, tengo pasión por viajar y la comida, y me encanta sumergirme en diferentes culturas. Este entusiasmo se extiende a los idiomas, hablando fluidamente Español, Inglés, Galego, Italiano, y aprendiendo un poco de Turkçe.</p>
 
-            <p>He comenzado a contribuir a la comunidad Open Source.</p>
-        `,
+        <p>En cada proyecto en el que trabajo, aporto competencia técnica y también un compromiso con velocidad y eficiencia.</p>
+
+        <p>¡Conectemos y exploremos nuevas posibilidades!</p>
+      `,
     'resumeText': 'CV / Resumen',
   },
   'ga': {
     'welcomeText': `
-        <p>Traballei na área de desenvolvemento backend por máis de 3 anos.
+        <p>Ola! :) Son Adri, un Software Engineer con forte experiencia en DevOps.</p>
 
-        <p>Comecei traballando principalmente coa linguaxe de programación Perl creando novos módulos para automatizar
-        a interacción con distintos servizos como Xen, KVM, Nginx, Apache, SSL, Restic, Ceph, ELK,
-        etc. Grazas a unha migración de toda a infraestrutura tiven a oportunidade de realizar migracións
-        de todos estes módulos usando PHP e Python principalmente. </p>
+        <p>Inicieime na miña traxectoria como Desenvolvedor Backend de PHP traballando en varios frameworks e despois continuei no mundo da automatización de servizos Linux usando Perl e Python.</p>
 
-        <p>Fai máis dun ano fixen un gran cambio cando me unín a Red Hat <i class="fab fa-redhat fa-lg"></i> </p>
+        <p>Á medida que avanzou a miña carreira, transitei a Software Engineer, traballando simultaneamente en proxectos diversos, incluíndo automatización, monitorización, CI/CD, testing entre outros.</p>
 
-        <p>Atópome colaborando co equipo de Code Reliability Engineering realizando melloras no sistema de CI
-        de Openstack tanto en upstream como en downstream usando distintas ferramentas, linguaxes de programación e
-        servizos como Grafana, InfluxDB, Telegraf, ELK, Filebeat, Go, Python ademais de realizar algunhas contribucións
-        ao proxecto de Openshift xerando algúns operators en k8s para compoñentes de Openstack. </p>
+        <p>Máis aló do código, gústame viaxar e pola comida, e encántame aprender sobre diferentes culturas. Este entusiasmo esténdese ás linguas, falando con fluidez Español, Inglés, Galego, Italiano, e agora estou a aprender algo de Turkçe.</p>
 
-        <p>Comecei a contribuír á comunidade Open source.</p>
-        `,
-    'resumeText': 'CV / Resumen',
+        <p>En cada proxecto no que traballo, aporto non só competencia técnica, senón tamén un compromiso con velocidade e eficiencia.</p>
+
+        <p>Conectémonos e exploremos novas posibilidades!</p>
+    `,
+    'resumeText': 'CV / Resumo',
   },
 };
 
