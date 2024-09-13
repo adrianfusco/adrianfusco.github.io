@@ -1,63 +1,98 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>afuscoar</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/font-awesome/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="static/dist/tailwind.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="static/css/styles.css">
 </head>
-
-<body>
-  <div class="about-wrapper">
-    <div class="about-left">
-      <div class="about-left-content">
-        <div>
-          <div class="shadow">
-            <div class="about-img">
-              <img src="media/img/afuscoar.jpg" alt="About me">
-            </div>
-          </div>
+<body class="dark:bg-gray-900 transition-colors duration-300">
+  <header class="bg-gray-100 dark:bg-gray-800 bg-gradient-to-r dark:from-gray-900 dark:to-gray-800 shadow-md p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-extrabold text-white"></h1>
+      <nav class="text-gray-600 dark:text-gray-300 flex space-x-6 items-center">
+        <a href="#about" class="hover:text-gray-300 dark:hover:text-gray-400">About</a>
+        <a href="#github-projects" class="hover:text-gray-300 dark:hover:text-gray-400">GitHub Projects</a>
+        <a href="#cv" class="hover:text-gray-300 dark:hover:text-gray-400">CV</a>
+        <button id="theme-toggle"
+          class="flex items-center justify-center w-10 h-10 bg-gray-200 dark:bg-gray-800 rounded-full transition hover:bg-gray-300 dark:hover:bg-gray-700 focus:outline-none">
+          <svg id="theme-toggle-dark-icon" class="w-6 h-6 text-gray-900 dark:text-gray-200 hidden" fill="none"
+            stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path
+              d="M12 3C9.54 3 7.32 5.29 7.32 7.81c0 1.04.4 2.02 1.05 2.76-.75.19-1.48.46-2.17.81-1.61.69-2.8 2.07-2.8 3.78 0 2.21 2.79 4.03 6.28 4.03 2.5 0 4.83-.9 6.58-2.38 1.44-.94 2.48-2.33 2.84-3.83 0-3.09-3.38-5.6-7.54-5.6z">
+            </path>
+          </svg>
+          <svg id="theme-toggle-light-icon" class="w-6 h-6 text-yellow-400 dark:text-gray-200 hidden" fill="none"
+            stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2" fill="none"></circle>
+            <path
+              d="M12 1v2m0 18v2m10.07-13.93l-1.42 1.42M4.93 17.93l-1.42-1.42M21 12h2m-22 0H1m15.78-4.22l1.42-1.42M4.22 5.78l1.42 1.42">
+            </path>
+          </svg>
+        </button>
+        <div class="mb-1 lg:mb-0 flex justify-center lg:justify-start">
+          <img src="https://adrianfusco.github.io/media/img/afuscoar.jpg" alt="Profile Image"
+            class="rounded-full w-12 h-12 shadow-lg">
         </div>
-        <ul class="icons">
-          <li>
-            <a href="https://github.com/adrianfusco" target="_blank">
-              <i class="fab fa-github"></i>
-            </a>
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/adrianfusco/" target="_blank">
-              <i class="fab fa-linkedin"></i>
-            </a>
-          </li>
-          <li>
-            <a href="https://es.stackoverflow.com/users/177597/adrian?tab=profile" target="_blank">
-              <i class="fab fa-stack-overflow"></i>
-            </a>
-          </li>
-        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="social-links" class="py-16 bg-white dark:bg-gray-900 transition-colors duration-300">
+    <div class="container mx-auto text-center">
+      <div class="flex justify-center gap-6">
+        <a href="https://www.linkedin.com/in/adrianfusco" target="_blank"
+          class="text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">
+          <i class="fab fa-linkedin-in fa-2x text-blue-600 dark:text-blue-400"></i>
+        </a>
+        <a href="https://github.com/adrianfusco" target="_blank"
+          class="text-gray-800 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 transition-colors duration-300">
+          <i class="fab fa-github fa-2x text-gray-900 dark:text-gray-400"></i>
+        </a>
+        <a href="https://es.stackoverflow.com/users/177597/adrian" target="_blank"
+          class="text-gray-800 dark:text-gray-200 hover:text-orange-500 dark:hover:text-orange-400 transition-colors duration-300">
+          <i class="fab fa-stack-overflow fa-2x text-orange-500 dark:text-orange-400"></i>
+        </a>
       </div>
     </div>
-    <div class="about-right">
-      <div class="language-buttons">
-        <img src="media/img/usa-england-flag.svg" id="language-button" language="en" onclick="changeLanguage(this)">
-        <img src="media/img/spanish-flag.png" id="language-button" language="es" onclick="changeLanguage(this)">
-        <img src="media/img/galician-flag.png" id="language-button" language="ga" onclick="changeLanguage(this)">
-      </div>
-      <h2>Adrian Fusco</h2>
-      <div class="about" id="welcomeText">
-      </div>
-      <div class="about-btns">
-        <a id="resumeText" href="media/cv_afuscoar_2024_01_02.pdf" class="btn btn-gradient" target="_blank"></a>
-      </div>
-      <div>
-        <div id="text-terminal"></div>
+  </section>
+
+  <section>
+    <div class="container mx-auto">
+      <div id="terminal" class="terminal bg-black text-white rounded-lg overflow-hidden">
       </div>
     </div>
-  </div>
+  </section>
+
+  <section id="github-projects" class="py-16 bg-white dark:bg-gray-900 transition-colors duration-300">
+    <div class="container mx-auto">
+      <h3 class="text-4xl font-extrabold text-gray-800 dark:text-gray-200 mb-8">My GitHub Projects</h3>
+      <div id="projects-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </div>
+  </section>
+
+  <section id="cv">
+    <div class="container mx-auto text-center">
+      <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">My CV</h2>
+      <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
+      <div class="flex justify-center">
+        <object class="pdf border border-gray-300 dark:border-gray-700 rounded-lg shadow-md"
+          data="media/cv_afuscoar_2024_01_02.pdf" width="800" height="500">
+          <a href="media/cv_afuscoar_2024_01_02.pdf"
+            class="text-blue-600 dark:text-blue-400 hover:underline">Download the PDF</a>.
+        </object>
+      </div>
+      </p>
+    </div>
+  </section>
+
+  <footer class="mt-5 bg-gray-100 dark:bg-gray-800 py-4 text-center">
+    <p class="text-gray-600 dark:text-gray-300">&copy; 2024 Adrian Fusco. All rights reserved.</p>
+  </footer>
 </body>
-<script src="script.js"></script>
+<script src="js/scripts.js"></script>
 
 </html>
