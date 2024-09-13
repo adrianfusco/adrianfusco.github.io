@@ -1,15 +1,23 @@
+.terminal-wrapper {
+  max-width: 100%; /* Ensure it fits within the container */
+  height: 320px; /* Fixed height to prevent shifting */
+  overflow: hidden; /* Hide overflow outside the wrapper */
+}
+
 .terminal {
-    font-family: 'Source Code Pro', monospace;
-    line-height: 1.5;
-    position: relative;
-    width: 100%;
-    margin: 0 auto;
-    color: #00ff00;
-    background-color: #000000;
-    padding: 10px;
-    overflow: hidden;
-    white-space: pre-wrap;
-  }
+  font-family: 'Source Code Pro', monospace;
+  line-height: 1.5;
+  width: 100%; /* Full width of the wrapper */
+  height: 100%; /* Full height of the wrapper */
+  color: #00ff00;
+  background-color: #000000;
+  padding: 10px;
+  overflow-y: auto; /* Vertical scrollbar if content exceeds height */
+  white-space: pre-wrap;
+  box-sizing: border-box; /* Include padding in width/height calculations */
+}
+
+
 
   .line {
     display: block;
