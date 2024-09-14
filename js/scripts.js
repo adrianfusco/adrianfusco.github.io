@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  setupProjects();
   executeInitialCommands();
   setupThemeToggle();
   setupCommandInput();
@@ -74,23 +73,7 @@ const input = document.getElementById('input');
 const output = document.getElementById('output');
 let selectedIndex = -1;
 
-function setupProjects() {
-  const projectsList = document.getElementById('projects-list');
-  pinnedRepos.forEach(repo => {
-    const projectItem = document.createElement('div');
-    projectItem.classList.add('p-6', 'bg-white', 'dark:bg-gray-800', 'shadow-lg', 'rounded-lg', 'transition-transform', 'transform', 'hover:scale-105', 'duration-300');
-    projectItem.innerHTML = `
-      <h4 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">${repo.name}</h4>
-      <a href="${repo.url}" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300" target="_blank">View on GitHub</a>
-      <p class="text-gray-700 dark:text-gray-300 mt-2">${repo.description || 'No description available'}</p>
-    `;
-    projectsList.appendChild(projectItem);
-  });
-}
-
 function executeInitialCommands() {
-  executeCommand('about_me');
-  executeCommand('contact_me');
   executeCommand('help');
 }
 
@@ -146,7 +129,8 @@ function setupCommandInput() {
 }
 
 function handleInput(event) {
-  const value = event.target.value;
+  const value = event.target.value.toLowerCase();
+  event.target.value = value;
   const suggestions = commands.filter(cmd => cmd.startsWith(value) && value.length > 0);
   renderSuggestions(suggestions);
 }
@@ -163,7 +147,11 @@ function handleKeyDown(event) {
     selectedIndex = (selectedIndex - 1 + items.length) % items.length;
     updateSelection();
   } else if (event.key === 'Enter') {
-    executeCommand(input.value.trim());
+    if (items.length > 0) {
+      executeCommand(items[selectedIndex].textContent.trim());
+    } else {
+      executeCommand(input.value.trim());
+    }
   } else if (event.key === 'Escape') {
     autocomplete.innerHTML = '';
   } else if (event.key === 'Tab') {
@@ -189,7 +177,7 @@ function renderSuggestions(suggestions) {
     item.classList.add('autocomplete-suggestion', 'p-2', 'cursor-pointer', 'hover:bg-gray-200');
     item.textContent = suggestion;
     item.addEventListener('click', () => {
-      input.value = suggestion;
+      executeCommand(suggestion);
       autocomplete.innerHTML = '';
     });
     autocomplete.appendChild(item);
