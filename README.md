@@ -1,18 +1,16 @@
 # adrianfusco.github.io
 
-![Maintainer](https://img.shields.io/badge/maintainer-Adrian%20Fusco-blue)
+Welcome to my personal website repository! This site showcases my projects, skills, and professional background.
 
-Simple handmade `about me` website.
+Access:
 
-![ForTheBadge uses-html](https://ForTheBadge.com/images/badges/uses-html.svg)
-![ForTheBadge uses-css](https://ForTheBadge.com/images/badges/uses-css.svg)
-![ForTheBadge uses-js](https://forthebadge.com/images/badges/uses-js.svg)
+-  [Terminal mood site](https://adrianfusco.github.io/)
+-  [Human Readable site](https://adrianfusco.github.io/human_readable_index.html)
 
+## Features
 
-### 🌍 Available translations of the website
-
-<img src="media/img/usa-england-flag.svg" alt="drawing" width="50"/>
-
-<img src="media/img/spanish-flag.png" alt="drawing" width="40"/>
-
-<img src="media/img/galician-flag.png" alt="drawing" width="40"/>
+- **Interactive Terminal**: Simulate terminal commands.
+- **GitHub Projects**: View my pinned GitHub repositories.
+- **Personal Info**: Learn about my experience and language skills.
+- **Responsive Design**: Optimized for all devices.
+- **Theme Toggle**: Switch between dark and light modes.

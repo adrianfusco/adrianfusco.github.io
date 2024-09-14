@@ -13,6 +13,12 @@
   word-wrap: break-word;
 }
 
+.output {
+  overflow: auto;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
 .command-line {
   display: flex;
   align-items: center;
@@ -80,4 +86,67 @@
   background-color: #300;
   border-left: 3px solid #f00;
   color: #f00;
+}
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 74px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #e5e7eb;
+  transition: .1s;
+  border-radius: 9999px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
+  left: 4px;
+  bottom: 4px;
+  background-color: #ffffff;
+  transition: .4s;
+}
+
+input:checked+.slider {
+  background-color: #3b82f6;
+}
+
+input:checked+.slider:before {
+  transform: translateX(26px);
+}
+
+.sun-icon,
+.moon-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.sun-icon {
+  left: 10px;
+}
+
+.moon-icon {
+  right: 10px;
 }

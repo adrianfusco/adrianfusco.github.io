@@ -1,48 +1,114 @@
 document.addEventListener('DOMContentLoaded', () => {
   executeInitialCommands();
-  setupThemeToggle();
   setupCommandInput();
 });
 
-const commands = ['help', 'about_me', 'clear', 'contact_me', 'projects', 'skills'];
-
-// Well, we can't get the pinned repos using the GitHub API, it's possible with GraphQL but we need auth so, let's just do it manually ;)
-const pinnedRepos = [
-  { name: 'openinfra2024-dashboard-as-a-code', description: 'This repository contains supplementary materials for our presentation at the OpenInfra Day Germany 2024 in Berlin.', url: 'https://github.com/adrianfusco/openinfra2024-dashboard-as-a-code' },
-  { name: 'openinfra2024-software-factory-playground', description: 'This repository contains supplementary materials for our presentation at the OpenInfra Summit Asia 2024 in Korea.', url: 'https://github.com/adrianfusco/openinfra2024-software-factory-playground' },
-  { name: 'CI Framework', description: 'CI Framework - used for CI, QE and Devs to run jobs in a converged way', url: 'https://github.com/openstack-k8s-operators/ci-framework/' },
-  { name: 'Syncron', description: 'Usage Patterns all in one cli based application written in Golang.', url: 'https://github.com/RedHatCRE/syncron' },
-  { name: 'EksS3ClusterApp', description: 'The project provides a solution for creating S3 buckets and adding specific IAM policies using Terraform modules and automates the creation of an AWS EKS cluster.', url: 'https://github.com/adrianfusco/EksS3ClusterApp' },
-  { name: 'Cibyl', description: 'Cibyl is a command-line interface and REST API for querying CI/CD environments and systems.', url: 'https://github.com/RedHatCRE/cibyl' },
+const commands = [
+  'help',
+  'about_me',
+  'clear',
+  'contact_me',
+  'projects',
+  'skills',
+  'history',
+  'redirect'
 ];
 
-function generateRepoList(data) {
-  let list = 'Here are some of my pinned repositories:\n\n';
+let commandHistory = JSON.parse(localStorage.getItem('commandHistory')) || [];
+let commandCounter = 0;
 
-  data.forEach(repo => {
-    list += `Repository: ${repo.name}\n`;
-    list += `Description: ${repo.description}\n`;
-    list += `URL: <a href="${repo.url}" target="_blank">${repo.url}</a>\n\n`;
-  });
+const autocomplete = document.getElementById('autocomplete');
+const input = document.getElementById('input');
+const output = document.getElementById('output');
 
-  return list;
-}
+let selectedIndex = -1;
+
+const redirectUrls = {
+  cv: 'media/cv_afuscoar_2024_01_02.pdf',
+  hrs: 'human_readable_index.html',
+};
 
 const commandDescriptions = {
-  help: generateHelpDescription(commands),
-  about_me: `
+  help: getHelpDescription,
+  about_me: getAboutMeDescription,
+  contact_me: getContactMeDescription,
+  projects: getProjectsDescription,
+  skills: getSkillsDescription,
+  history: getCommandHistory,
+  redirect: handleRedirectCommand,
+};
+
+function handleRedirectCommand(parameter) {
+  const validOptions = Object.keys(redirectUrls);
+  const urlPath = redirectUrls[parameter];
+  if (urlPath) {
+    output.innerHTML += `
+      <p class="text-green-500">
+        Redirecting...
+      </p>
+    `;
+    setTimeout(() => {
+      window.location.href = urlPath;
+    }, 1000);
+
+    return;
+  } else {
+    const validOptionsString = validOptions.join(', ');
+    output.innerHTML += `
+      <p class="text-red-500">
+        Invalid parameter for redirect. Valid options are: ${validOptionsString}. Example:
+        $ redirect cv
+      </p>
+    `;
+  }
+}
+
+function getHelpDescription() {
+  return `Available commands:\n${commands.map(cmd => `- ${cmd}`).join('\n')}`;
+}
+
+function getAboutMeDescription() {
+  return `
 Hey there! 😊 I’m Adri, and I’m a Software Engineer with a strong DevOps background. 💻🔧
 I started working as a Backend Developer, diving into different frameworks, and then moved on to Linux services automation with Perl and Python.
 I transitioned into a software engineering role, working on different projects from automation and monitoring to CI/CD and testing. 🔄🔍🔧
 When I’m not coding, I’m probably traveling or enjoying some good food. 😛🌍 I’m also a bit of a language enthusiast. I speak Español 🇪🇸, English 🇬🇧, Galego 🇪🇸, Italiano 🇮🇹, and I’m learning some Turkçe 🇹🇷.
 In every project I work on, I bring not only technical proficiency but also a commitment to speed and efficiency. 🚀
-  `,
-  contact_me: `
-Need to reach out? 🤔 Well, you could try sending a carrier pigeon, but that might take a while. Instead, you can contact me here on LinkedIn:
+  `;
+}
+
+function getContactMeDescription() {
+  return `
+Need to reach out? 🤔 Well, you could try sending a carrier pigeon, but that might take a while. Instead, you can contact me here on LinkedIn. Click there ;)
 - <a href="https://www.linkedin.com/in/adrianfusco" target="_blank">LinkedIn Profile</a>\n
-  `,
-  projects: generateRepoList(pinnedRepos),
-  skills: `
+  `;
+}
+
+function getProjectsDescription() {
+  const pinnedRepos = [
+    { name: 'openinfra2024-dashboard-as-a-code', description: 'This repository contains supplementary materials for our presentation at the OpenInfra Day Germany 2024 in Berlin.', url: 'https://github.com/adrianfusco/openinfra2024-dashboard-as-a-code' },
+    { name: 'openinfra2024-software-factory-playground', description: 'This repository contains supplementary materials for our presentation at the OpenInfra Summit Asia 2024 in Korea.', url: 'https://github.com/adrianfusco/openinfra2024-software-factory-playground' },
+    { name: 'CI Framework', description: 'CI Framework - used for CI, QE and Devs to run jobs in a converged way', url: 'https://github.com/openstack-k8s-operators/ci-framework/' },
+    { name: 'Syncron', description: 'Usage Patterns all in one cli based application written in Golang.', url: 'https://github.com/RedHatCRE/syncron' },
+    { name: 'EksS3ClusterApp', description: 'The project provides a solution for creating S3 buckets and adding specific IAM policies using Terraform modules and automates the creation of an AWS EKS cluster.', url: 'https://github.com/adrianfusco/EksS3ClusterApp' },
+    { name: 'Cibyl', description: 'Cibyl is a command-line interface and REST API for querying CI/CD environments and systems.', url: 'https://github.com/RedHatCRE/cibyl' },
+  ];
+
+  return generateRepoList(pinnedRepos);
+}
+
+function generateRepoList(repos) {
+  let list = 'Here are some of my pinned repositories:\n\n';
+  repos.forEach(repo => {
+    list += `Repository: ${repo.name}\n`;
+    list += `Description: ${repo.description}\n`;
+    list += `URL: <a href="${repo.url}" target="_blank">${repo.url}</a>\n\n`;
+  });
+  return list;
+}
+
+function getSkillsDescription() {
+  return `
 Here are some of my technical skills:
 
 - Collaboration: Experience working in both upstream and downstream projects across multiple teams.
@@ -56,71 +122,15 @@ Here are some of my technical skills:
 - Scripting: Proficient in Bash scripting and working with Makefiles.
 - GitHub Actions: Experienced in using GitHub Actions for automation.
 - Dashboard Creation: Skilled in creating Grafana dashboards and automating with jsonnet.
-
-  `,
-  clear: ''
-};
-
-
-function generateHelpDescription(commands) {
-  return `Available commands:
-${commands.map(cmd => `- ${cmd}`).join('\n')}
   `;
 }
 
-const autocomplete = document.getElementById('autocomplete');
-const input = document.getElementById('input');
-const output = document.getElementById('output');
-let selectedIndex = -1;
+function getCommandHistory() {
+  return commandHistory.map((cmd, index) => `<li><strong>${index + 1}:</strong> ${cmd}</li>`).join('');
+}
 
 function executeInitialCommands() {
   executeCommand('help');
-}
-
-function setupThemeToggle() {
-  const themeToggle = document.getElementById('theme-toggle');
-  const darkModeIcon = document.getElementById('theme-toggle-dark-icon');
-  const lightModeIcon = document.getElementById('theme-toggle-light-icon');
-
-  function toggleDarkMode() {
-    if (document.documentElement.classList.contains('dark')) {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('color-theme', 'light');
-      darkModeIcon.classList.add('hidden');
-      lightModeIcon.classList.remove('hidden');
-    } else {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('color-theme', 'dark');
-      darkModeIcon.classList.remove('hidden');
-      lightModeIcon.classList.add('hidden');
-    }
-  }
-
-  const storedTheme = localStorage.getItem('color-theme');
-  if (storedTheme) {
-    if (storedTheme === 'dark') {
-      document.documentElement.classList.add('dark');
-      darkModeIcon.classList.remove('hidden');
-      lightModeIcon.classList.add('hidden');
-    } else {
-      document.documentElement.classList.remove('dark');
-      darkModeIcon.classList.add('hidden');
-      lightModeIcon.classList.remove('hidden');
-    }
-  } else {
-    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-    if (prefersDarkScheme.matches) {
-      document.documentElement.classList.add('dark');
-      darkModeIcon.classList.remove('hidden');
-      lightModeIcon.classList.add('hidden');
-    } else {
-      document.documentElement.classList.remove('dark');
-      darkModeIcon.classList.add('hidden');
-      lightModeIcon.classList.remove('hidden');
-    }
-  }
-
-  themeToggle.addEventListener('click', toggleDarkMode);
 }
 
 function setupCommandInput() {
@@ -184,15 +194,70 @@ function renderSuggestions(suggestions) {
   });
 }
 
+function createSeparator() {
+  return '<hr class="my-4 border-gray-500">';
+}
+
+function handleCommandNotFound(command) {
+  return `
+    <p class="text-red-500">Command not found: <strong>${command}</strong></p>
+  `;
+}
+
+function handleRecalledCommand(recalledCommand) {
+  return `
+    <p class="text-blue-500">Recalled command: <strong>${recalledCommand}</strong></p>
+    ${createSeparator()}
+  `;
+}
+
 function executeCommand(command) {
-  if (!commands.includes(command)) {
-    output.innerHTML += `<p>Command not found: ${command}</p>`;
-    return;
-  }
-  output.innerHTML += `<p>${commandDescriptions[command]}</p>`;
+  const separator = createSeparator();
+
   if (command === 'clear') {
     output.innerHTML = '';
+    input.value = '';
+    input.focus();
+    return;
   }
+
+  if (command.startsWith('!')) {
+    const index = parseInt(command.slice(1), 10) - 1;
+    if (index >= 0 && index < commandHistory.length) {
+      const recalledCommand = commandHistory[index];
+      output.innerHTML += handleRecalledCommand(recalledCommand) + separator;
+      executeCommand(recalledCommand);
+      return;
+    } else {
+      output.innerHTML += `<p class="text-red-500">No such history entry: ${command}</p>${separator}`;
+      return;
+    }
+  }
+
+  commandCounter++;
+  commandHistory.push(command);
+  localStorage.setItem('commandHistory', JSON.stringify(commandHistory));
+
+  const [cmd, ...params] = command.split(' ');
+  const param = params.join(' ');
+
+  if (!commands.includes(cmd)) {
+    output.innerHTML += handleCommandNotFound(cmd) + separator;
+  } else {
+    const result = cmd === 'redirect'
+      ? handleRedirectCommand(param)
+      : typeof commandDescriptions[cmd] === 'function'
+        ? commandDescriptions[cmd]()
+        : commandDescriptions[cmd];
+
+    output.innerHTML += `
+      <p class="text-green-500">${result || ''}</p>
+      ${separator}
+    `;
+  }
+
   input.value = '';
   input.focus();
 }
+
+
