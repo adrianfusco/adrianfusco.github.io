@@ -1,41 +1,83 @@
-.terminal-wrapper {
-  max-width: 100%; /* Ensure it fits within the container */
-  height: 320px; /* Fixed height to prevent shifting */
-  overflow: hidden; /* Hide overflow outside the wrapper */
-}
-
 .terminal {
-  font-family: 'Source Code Pro', monospace;
-  line-height: 1.5;
-  width: 100%; /* Full width of the wrapper */
-  height: 100%; /* Full height of the wrapper */
+  background: #000;
   color: #00ff00;
-  background-color: #000000;
-  padding: 10px;
-  overflow-y: auto; /* Vertical scrollbar if content exceeds height */
-  white-space: pre-wrap;
-  box-sizing: border-box; /* Include padding in width/height calculations */
+  font-family: monospace;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  max-width: 1600px;
+  margin: 1rem auto;
+  height: 500px;
+  overflow-y: auto;
+  position: relative;
+  white-space: pre-line;
+  word-wrap: break-word;
+}
+
+.command-line {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.command-line .prompt {
+  color: #00ff00;
+  margin-right: 0.5rem;
+}
+
+.command-line .input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #00ff00;
+  outline: none;
+  font-family: monospace;
+  padding: 0.15rem;
+}
+
+.autocomplete-suggestions {
+  position: absolute;
+  background: #222;
+  color: #00ff00;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 1000;
+  width: calc(100% - 2rem);
+  top: 100%;
+  left: 0;
+  margin: 0;
+}
+
+.autocomplete-suggestion {
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.autocomplete-suggestion:hover,
+.autocomplete-suggestion.selected {
+  background: #444;
 }
 
 
+.output-text {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  background-color: #1e1e1e;
+  margin-bottom: 0rem;
+  word-break: break-word;
+  white-space: pre-wrap;
+}
 
-  .line {
-    display: block;
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 2px solid #00ff00;
-    animation: blink 1s step-end infinite;
-    padding: 1px;
-    overflow: hidden;
-    white-space: pre-wrap;
+.output-text.code {
+  background-color: #333;
+  border-left: 3px solid #00ff00;
+  color: #00ff00;
+}
 
-  }
-
-  .cursor {
-    display: inline-block;
-    width: 2px;
-    height: 1em;
-    background-color: #00ff00;
-    animation: blink 1s step-start infinite;
-    margin-left: 2px;
-  }
+.output-text.error {
+  background-color: #300;
+  border-left: 3px solid #f00;
+  color: #f00;
+}
